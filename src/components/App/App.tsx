@@ -33,11 +33,8 @@ export default function App() {
     }
   };
 
-  const handleSelectMovie = (id: number) => {
-    const searchMovie = films.find(films => films.id === id);
-    if (searchMovie) {
-      setSelectedMovie(searchMovie);
-    }
+  const handleSelectMovie = (movie: Movie) => {
+    setSelectedMovie(movie);
   };
 
   const closeModal = () => {
