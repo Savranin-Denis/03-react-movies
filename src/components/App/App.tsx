@@ -1,8 +1,9 @@
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import SearchBar from '../SearchBar/SearchBar';
 import { useState } from 'react';
 import { fetchMovies } from '../../services/movieService';
 import type { Movie } from '../../types/movie';
+import MovieGrid from '../MovieGrid/MovieGrid';
 
 export default function App() {
   const [films, setFilms] = useState<Movie[]>([]);
@@ -21,9 +22,15 @@ export default function App() {
     }
   };
 
+  const handleSelectMovie = (id: number) => {
+    console.log(id);
+  };
+
   return (
     <>
       <SearchBar onSubmit={handleSearch} />
+      <Toaster />
+      <MovieGrid onSelect={handleSelectMovie} movies={films} />
     </>
   );
 }
